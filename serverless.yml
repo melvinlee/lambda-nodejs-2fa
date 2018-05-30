@@ -8,6 +8,12 @@ provider:
   environment:
       USER_DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
 
+package:
+  exclude:
+    - package.json
+    - yarn.lock
+    - examples/**
+    
 resources:
   Resources:
     UserDynamoDbTable:
