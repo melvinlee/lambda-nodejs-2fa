@@ -1,5 +1,8 @@
 service: lambda-2fa
 
+plugins:
+  - serverless-iam-roles-per-function
+  
 provider:
   name: aws
   runtime: nodejs8.10
@@ -13,7 +16,7 @@ package:
     - package.json
     - yarn.lock
     - examples/**
-    
+
 resources:
   Resources:
     UserDynamoDbTable:

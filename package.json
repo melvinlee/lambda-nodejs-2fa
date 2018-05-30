@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/melvinlee/lambda-nodejs-2fa/issues"
   },
-  "homepage": "https://github.com/melvinlee/lambda-nodejs-2fa#readme"
+  "homepage": "https://github.com/melvinlee/lambda-nodejs-2fa#readme",
+  "devDependencies": {
+    "serverless-iam-roles-per-function": "^1.0.0"
+  }
 }
