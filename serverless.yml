@@ -5,3 +5,24 @@ provider:
   runtime: nodejs8.10
   stage: ${opt:stage, 'dev'} 
   region: ap-southeast-1
+  environment:
+      USER_DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+
+resources:
+  Resources:
+    UserDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Delete
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.USER_DYNAMODB_TABLE}
